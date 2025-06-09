@@ -2,7 +2,7 @@
 <html lang="lv">
 <head>
   <meta charset="UTF-8">
-  <title>Deftones Albumu Galerija</title>
+  <title>Galerija un Karte</title>
   <style>
     .gallery {
       display: flex;
@@ -14,18 +14,35 @@
       height: 200px;
       object-fit: cover;
     }
+    #map {
+      height: 400px;
+      margin-top: 30px;
+    }
   </style>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
 <body>
-  <h1>Attēlu galerija</h1>
+  <h1>Deftones Albumu Galerija</h1>
   <div class="gallery">
-    <img src="images/img1.jpg" alt="Attēls 1">
-    <img src="images/img2.jpg" alt="Attēls 2">
-    <img src="images/img3.jpg" alt="Attēls 3">
-    <img src="images/img4.jpg" alt="Attēls 4">
-    <img src="images/img5.jpg" alt="Attēls 5">
-    <img src="images/img6.jpg" alt="Attēls 6">
-    <img src="images/img7.jpg" alt="Attēls 7">
+    <img src="images/img1.jpg" alt="1">
+    <img src="images/img2.jpg" alt="2">
+    <img src="images/img3.jpg" alt="3">
+    <img src="images/img4.jpg" alt="4">
+    <img src="images/img5.jpg" alt="5">
+    <img src="images/img6.jpg" alt="6">
+    <img src="images/img7.jpg" alt="7">
   </div>
+
+  <h1>Karte</h1>
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    var map = L.map('map').setView([56.9496, 24.1052], 13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap'
+    }).addTo(map);
+    L.marker([56.9496, 24.1052]).addTo(map).bindPopup("Šeit ir marķieris.");
+  </script>
 </body>
 </html>
